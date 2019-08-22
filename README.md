@@ -112,12 +112,12 @@ HTTP 200 OK
     {
         "id": 2,
         "name": "Alice",
-        "balance": 9000.0
+        "balance": 7000.0
     },
     {
         "id": 3,
         "name": "Clive",
-        "balance": 45000.0
+        "balance": 47000.0
     }
 ]
 

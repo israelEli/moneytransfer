@@ -26,7 +26,7 @@ RESTful API for money transfers between accounts.
 - java -jar moneytransfer.jar
 
 # How to use the application
-+ To create an account
+. To create an account
 - {
 	"name": "Eli",
 	"balance": "90000000.00"

@@ -16,6 +16,7 @@ public class AppTest extends TestCase {
 	private Account acct1;
 	private Account acct2;
 	private Account acct3;
+	private Account acct4;
 	
 	
 	public void testAccountCreation1()
@@ -59,15 +60,26 @@ public class AppTest extends TestCase {
 		assertTrue(AccountService.getAccounts().size() == 1);
 	}
 	
+	public void testAccountUpdate()
+	{
+		AccountService.emtpyList();
+		acct1 = new Account("Tony Montana", 12000000.0F);		
+		AccountService.createAccount(acct1);
+		acct4 = new Account("Tony Montana", 24000000.0F);		
+		Account updatedAcc = AccountService.updateAccount(acct1.getId(), acct4);
+		System.out.println(AccountService.getAccounts().size());
+		assertTrue(AccountService.getAccount(acct1.getId()).getBalance() == 24000000.0F );
+	}
+	
 	public void testAddingMultipleAccounts() 
 	{
 		AccountService.emtpyList();
 		acct1 = new Account("Tony Montana", 12000000.0F);	
 		acct2 = new Account("Tony Soprano", 4000000.0F);	
-		acct3 = new Account( "Tony Stark", 500000000.0F);	
+		acct3 = new Account( "Tony Stark", 500000000.0F);
 		AccountService.createAccount(acct1);
 		AccountService.createAccount(acct2);
-		AccountService.createAccount(acct3);		
+		AccountService.createAccount(acct3);
 		System.out.println(AccountService.getAccounts().size() + " size");
 		assertTrue(AccountService.getAccounts().size() == 3);		
 	}

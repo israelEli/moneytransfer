@@ -60,10 +60,12 @@ public class AccountResource {
 	}
 
 	@PUT
+	@Path("/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response updateAccount(Account account) {
-		Account acc = AccountService.updateAccount(account);
+	public Response updateAccount(@PathParam("id") int accountId, Account account) {
+		System.out.println("in updateAccount");
+		Account acc = AccountService.updateAccount(accountId, account);
 		if (acc != null)
 			return Response.ok(acc).status(Status.CREATED).build();
 		else {

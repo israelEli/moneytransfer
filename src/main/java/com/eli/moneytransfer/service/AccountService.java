@@ -52,14 +52,17 @@ public class AccountService {
 		return acct;
 	}
 
-	public static Account updateAccount(Account accountUpdate) {
+	public static Account updateAccount(int accountId, Account accountUpdate) {
 		System.out.println(accountUpdate.toString());
 		// only one thread can perform this action at a time
 		synchronized (updateLock) {
 			// only one thread can perform this action at a time
-			accounts.put(accountUpdate.getId(), accountUpdate);
+			Account acc = accounts.get(accountId);
+			acc.setBalance(accountUpdate.getBalance());
+			acc.setName(accountUpdate.getName());
+			accounts.put(accountId, acc);
 		}
-		return accountUpdate;
+		return accounts.get(accountId);
 	}
 
 	public static Account deleteAccount(int id) {

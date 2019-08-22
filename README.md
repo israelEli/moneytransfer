@@ -27,7 +27,17 @@ RESTful API for money transfers between accounts.
 
 # How to use the application
 . To create an account
+- POST http://localhost:8080/accounts/
 - {
 	"name": "Eli",
 	"balance": "90000000.00"
 }
+ 
+ . Response:
+ HTTP 201 Created
+ - {
+    "id": 2,
+    "name": "Eli",
+    "balance": 9.0E7
+}
+
